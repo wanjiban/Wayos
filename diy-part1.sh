@@ -16,3 +16,24 @@
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
+echo 'src-git sundaqiang https://github.com/sundaqiang/openwrt-packages-backup' >>feeds.conf.default
+
+#更改主题包源
+#rm -rf package/lean/luci-theme-argonne
+#git clone -b 21.02 https://github.com/kenzok78/luci-theme-argonne  package/lean/luci-theme-argonne
+
+# 清除旧版argon主题并拉取最新版
+#pushd ../package/lean
+#rm -rf luci-theme-argonne
+#git clone -b 21.02 https://github.com/jerrykuku/luci-theme-argon luci-theme-argon
+
+## 解除系统限制
+#ulimit -u 10000
+#ulimit -n 4096
+#ulimit -d unlimited
+#ulimit -m unlimited
+#ulimit -s unlimited
+#ulimit -t unlimited
+#ulimit -v unlimited
