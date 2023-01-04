@@ -74,6 +74,12 @@ sed -i "s/OpenWrt /Way Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/
 #uci commit
 #EOF
 
+# DIAG
+sed -i "/uci commit system/a uci commit diag"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit diag/i luci.diag.dns='jd.com'"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit diag/i luci.diag.ping='jd.com'"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit diag/i luci.diag.route='jd.com'"  package/lean/default-settings/files/zzz-default-settings
+
 # LAN LAN LAN WAN
 sed -i "/uci commit system/a uci commit network"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit network/i uci set network.lan.ifname='eth1 eth2 eth3'"  package/lean/default-settings/files/zzz-default-settings
