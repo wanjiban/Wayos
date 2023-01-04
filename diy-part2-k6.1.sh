@@ -160,7 +160,7 @@ sed -i 's/150/250/g' package/network/services/dnsmasq/files/dhcp.conf
 sed -i 's/root::0:0:99999:7:::/root:$1$P4yrmMQf$XRoELeUToXNeituE0pl22.:19131:0:99999:7:::/g' package/base-files/files/etc/shadow
 
 ########### 更改大雕源码（可选）###########
-# sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
 
 # 设置密码为空
 #sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$rOlqcfTl$sQ03k9uRqA\/xTm7pzAmSs1:19130:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings   
