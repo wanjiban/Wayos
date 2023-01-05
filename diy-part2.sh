@@ -60,7 +60,7 @@ sed -i "/uci commit luci/i uci set luci.main.lang=zh_cn"  package/base-files/fil
 
 # UDPXY
 sed -i "/uci commit system/a uci commit udpxy"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit udpxy/i uci set udpxy.@udpxy.mcsub_renew='55'"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit udpxy/i uci set udpxy.@udpxy[0].mcsub_renew='55'"  package/lean/default-settings/files/zzz-default-settings
 
 # Banner
 # Refer https://github.com/unifreq/openwrt_packit/blob/master/public_funcs
