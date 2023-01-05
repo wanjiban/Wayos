@@ -10,6 +10,28 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
+########### 更改大雕源码（可选）###########
+# sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
+
+# 隐藏首页显示用户名(by:kokang)
+sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
+sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argonne/sysauth.htm
+# 移动光标至第一格(by:kokang)
+sed -i "s/'luci_password'/'luci_username'/g" feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
+sed -i "s/'luci_password'/'luci_username'/g" feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argonne/sysauth.htm
+
+
+# 修改生成的固件名称include/image.mk
+sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX:=$(shell date +%Y%m%d)' include/image.mk
+sed -i '/IMG_PREFIX:=/s/^#\?/#/' include/image.mk
+sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-k5.15-$(BUILD_DATE_PREFIX)' include/image.mk 
+
+# DIAG
+sed -i "/uci commit system/a uci commit diag"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit diag/i uci set luci.diag.dns='jd.com'"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit diag/i uci set luci.diag.ping='jd.com'"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  package/lean/default-settings/files/zzz-default-settings
+
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 #sed -i 's/255.255.0.0/255.255.255.0/g' package/base-files/files/bin/config_generate
@@ -165,8 +187,6 @@ sed -i 's/150/250/g' package/network/services/dnsmasq/files/dhcp.conf
 # Password
 sed -i 's/root::0:0:99999:7:::/root:$1$P4yrmMQf$XRoELeUToXNeituE0pl22.:19131:0:99999:7:::/g' package/base-files/files/etc/shadow
 
-########### 更改大雕源码（可选）###########
-# sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
 
 # 设置密码为空
 #sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$rOlqcfTl$sQ03k9uRqA\/xTm7pzAmSs1:19130:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings    
