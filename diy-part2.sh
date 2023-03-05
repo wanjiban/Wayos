@@ -17,7 +17,7 @@
 # 修改生成的固件名称include/image.mk
 sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX:=$(shell date +%Y%m%d)' include/image.mk
 sed -i '/IMG_PREFIX:=/s/^#\?/#/' include/image.mk
-sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-k5.15-$(BUILD_DATE_PREFIX)' include/image.mk 
+sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-$(BUILD_DATE_PREFIX)' include/image.mk 
 
 # WAN LAN LAN LAN && NO V6
 sed -i "/uci commit system/a uci commit network"  package/lean/default-settings/files/zzz-default-settings
