@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt Kernel 6.1
+name: Build OpenWrt SIDE
 
 on:
   repository_dispatch:
