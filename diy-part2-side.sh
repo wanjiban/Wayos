@@ -58,6 +58,7 @@ sed -i "/exit 0/i sed -i \"\/kenzo\/d\" \/etc\/opkg\/distfeeds.conf"  package/le
 sed -i "/exit 0/i sed -i \"\/small\/d\" \/etc\/opkg\/distfeeds.conf"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/exit 0/i sed -i \"\/passwall\/d\" \/etc\/opkg\/distfeeds.conf"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/exit 0/i sed -i \"\/sundaqiang\/d\" \/etc\/opkg\/distfeeds.conf"  package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i sed -i \"\/kiddin9\/d\" \/etc\/opkg\/distfeeds.conf"  package/lean/default-settings/files/zzz-default-settings
 
 # Modify system
 sed -i 's/OpenWrt/Way/g' package/base-files/files/bin/config_generate
