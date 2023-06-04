@@ -25,6 +25,10 @@ echo 'src-git sundaqiang https://github.com/sundaqiang/openwrt-packages-backup' 
 #rm -rf package/lean/luci-theme-argonne
 #git clone -b 21.02 https://github.com/kenzok78/luci-theme-argonne  package/lean/luci-theme-argonne
 
+#增加msd_lite包
+git clone https://github.com/bauw2008/luci-app-msd.git package/lean/luci-app-msd_lite
+
+
 # 清除旧版argon主题并拉取最新版
 #pushd ../package/lean
 #rm -rf luci-theme-argonne
