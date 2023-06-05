@@ -48,10 +48,10 @@ sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  package/lean/defau
 
 # 隐藏首页显示用户名(by:kokang)
 sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
-sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argonne/sysauth.htm
+sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/kenzo/luci-theme-argone/luasrc/view/themes/argonne/sysauth.htm
 # 移动光标至第一格(by:kokang)
 sed -i "s/'luci_password'/'luci_username'/g" feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
-sed -i "s/'luci_password'/'luci_username'/g" feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argonne/sysauth.htm
+sed -i "s/'luci_password'/'luci_username'/g" feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argone/sysauth.htm
 
 # REMOVE OPKG
 sed -i "/exit 0/i sed -i \"\/kenzo\/d\" \/etc\/opkg\/distfeeds.conf"  package/lean/default-settings/files/zzz-default-settings
