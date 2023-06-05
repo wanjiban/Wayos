@@ -189,8 +189,9 @@ sed -i 's/150/250/g' package/network/services/dnsmasq/files/dhcp.conf
 #sed -i 's/^[^#].*option ula/#&/' /etc/config/network
 
 # Password
-# sed -i '/shadow/s/^#\?/# /' package/lean/default-settings/files/zzz-default-settings
+sed -i '/shadow/d' package/lean/default-settings/files/zzz-default-settings
 sed -i 's/root::0:0:99999:7:::/root:$1$P4yrmMQf$XRoELeUToXNeituE0pl22.:19131:0:99999:7:::/g' package/base-files/files/etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$P4yrmMQf$XRoELeUToXNeituE0pl22.:19131:0:99999:7:::/g' package/base-files/files/etc/shadow
 
 
 # 设置密码为空
