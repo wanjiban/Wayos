@@ -26,10 +26,21 @@ echo 'src-git sundaqiang https://github.com/sundaqiang/openwrt-packages-backup' 
 #git clone -b 21.02 https://github.com/kenzok78/luci-theme-argonne  package/lean/luci-theme-argonne
 
 #增加msd_lite包
-git clone https://github.com/bauw2008/luci-app-msd.git package/luci-app-msd
-mv package/luci-app-msd/luci-app-msd_lite package/luci-app-msd_lite
-mv package/luci-app-msd/msd_lite package/msd_lite
+rm -rf feeds/packages/net/msd_lite
 rm -rf package/luci-app-msd
+rm -rf package/luci-app-msd/msd_lite
+rm -rf package/luci-app-msd/luci-app-msd_lite
+rm -rf package/luci-app-msd_lite
+rm -rf package/msd_lite
+# msd_lite
+git clone --depth=1 https://github.com/ximiTech/luci-app-msd_lite package/luci-app-msd_lite
+git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
+
+
+#git clone https://github.com/bauw2008/luci-app-msd.git package/luci-app-msd
+#mv package/luci-app-msd/luci-app-msd_lite package/luci-app-msd_lite
+#mv package/luci-app-msd/msd_lite package/msd_lite
+#rm -rf package/luci-app-msd
 
 # 清除旧版argon主题并拉取最新版
 #pushd ../package/lean
