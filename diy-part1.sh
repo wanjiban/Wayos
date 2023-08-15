@@ -25,24 +25,7 @@ echo 'src-git sundaqiang https://github.com/sundaqiang/openwrt-packages-backup' 
 #rm -rf package/lean/luci-theme-argonne
 #git clone -b 21.02 https://github.com/kenzok78/luci-theme-argonne  package/lean/luci-theme-argonne
 
-#增加msd_lite包
-rm -rf feeds/packages/net/msd_lite
-rm -rf package/luci-app-msd
-rm -rf package/luci-app-msd/msd_lite
-rm -rf package/luci-app-msd/luci-app-msd_lite
-rm -rf package/luci-app-msd_lite
-rm -rf package/msd_lite
-# msd_lite
-git clone --depth=1 https://github.com/ximiTech/luci-app-msd_lite package/luci-app-msd_lite
-git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 
-# 添加插件
-rm -rf package/luci-app-adguardhome
-git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-
-# SmartDNS
-git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
-git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 
 #git clone https://github.com/bauw2008/luci-app-msd.git package/luci-app-msd
 #mv package/luci-app-msd/luci-app-msd_lite package/luci-app-msd_lite
