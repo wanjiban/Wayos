@@ -38,7 +38,7 @@ sed -i "/uci commit dhcp/i uci delete dhcp.lan.dhcpv6"  package/lean/default-set
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 #sed -i 's/255.255.0.0/255.255.255.0/g' package/base-files/files/bin/config_generate
-sed -i 's/192.168.1.1/10.1.12.22/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.1.12.222/g' package/base-files/files/bin/config_generate
 
 # DIAG
 sed -i "/uci commit system/a uci commit diag"  package/lean/default-settings/files/zzz-default-settings
