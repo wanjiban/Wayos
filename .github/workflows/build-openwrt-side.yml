@@ -71,6 +71,12 @@ jobs:
        git clone https://github.com/ximiTech/luci-app-msd_lite
        git clone https://github.com/ximiTech/msd_lite
 
+    - name: luci-app-tailscale install
+      run: |
+       cd openwrt/package 
+       rm -rf luci-app-tailscale
+       git clone https://github.com/selfcan/luci-app-tailscale.git
+
        
     - name: Load custom feeds
       run: |
