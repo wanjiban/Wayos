@@ -19,21 +19,21 @@ sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX:=$(shell date +%Y%m%d)' inclu
 sed -i '/IMG_PREFIX:=/s/^#\?/#/' include/image.mk
 sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-$(BUILD_DATE_PREFIX)' include/image.mk 
 
-# WAN LAN LAN LAN && NO V6
+# LAN LAN LAN LAN 
 sed -i "/uci commit system/a uci commit network"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit network/i uci set network.lan.ifname='eth0 eth1 eth2 eth3'"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit network/i uci set network.lan.dns='61.139.2.69 223.5.5.5'"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit network/i uci set network.lan.gateway='10.1.12.1'"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit network/i uci set network.wan.ifname='xeth0'"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit network/i uci set network.wan6.ifname='xeth0'"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit network/i uci set network.wan.proto='none'"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit network/i uci set network.wan.ifname='xeth0'"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit network/i uci set network.wan6.ifname='xeth0'"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit network/i uci set network.wan.proto='none'"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit network/i uci set dhcp.lan.ignore='1'"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit network/i uci delete network.wan6"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit network/i uci delete network.lan.ip6assign"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit network/i uci delete network.globals.ula_prefix"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit network/i uci delete network.wan6"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit network/i uci delete network.lan.ip6assign"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit network/i uci delete network.globals.ula_prefix"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit system/a uci commit dhcp"  package/lean/default-settings/files/zzz-default-settings
 sed -i "/uci commit dhcp/i uci delete dhcp.lan.ra"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit dhcp/i uci delete dhcp.lan.dhcpv6"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit dhcp/i uci delete dhcp.lan.dhcpv6"  package/lean/default-settings/files/zzz-default-settings
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
@@ -47,11 +47,11 @@ sed -i "/uci commit diag/i uci set luci.diag.ping='jd.com'"  package/lean/defaul
 sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  package/lean/default-settings/files/zzz-default-settings
 
 # 隐藏首页显示用户名(by:kokang)
-sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
-sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/kenzo/luci-theme-argone/luasrc/view/themes/argonne/sysauth.htm
+#sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
+#sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/kenzo/luci-theme-argone/luasrc/view/themes/argonne/sysauth.htm
 # 移动光标至第一格(by:kokang)
-sed -i "s/'luci_password'/'luci_username'/g" feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
-sed -i "s/'luci_password'/'luci_username'/g" feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argone/sysauth.htm
+#sed -i "s/'luci_password'/'luci_username'/g" feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
+#sed -i "s/'luci_password'/'luci_username'/g" feeds/kenzo/luci-theme-argonne/luasrc/view/themes/argone/sysauth.htm
 
 # REMOVE OPKG
 sed -i "/exit 0/i sed -i \"\/kenzo\/d\" \/etc\/opkg\/distfeeds.conf"  package/lean/default-settings/files/zzz-default-settings
@@ -70,8 +70,8 @@ sed -i "/uci commit system/i uci set system.system.zonename=Asia/\Shanghai"  pac
 sed -i "/uci commit luci/i uci set luci.main.lang=zh_cn"  package/base-files/files/bin/config_generate
 
 # UDPXY
-sed -i "/uci commit system/a uci commit udpxy"  package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit udpxy/i uci set udpxy.@udpxy[0].mcsub_renew='55'"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit system/a uci commit udpxy"  package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit udpxy/i uci set udpxy.@udpxy[0].mcsub_renew='55'"  package/lean/default-settings/files/zzz-default-settings
 
 # Banner
 # Refer https://github.com/unifreq/openwrt_packit/blob/master/public_funcs
